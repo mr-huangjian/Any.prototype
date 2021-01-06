@@ -114,14 +114,14 @@ Date.$time('ms')
 
 多个 Promise 同时一起进行，最先成功的返回 `resolve`，都失败了返回 `reject`，可以参考 `Promise.race()`
 ```js
-Promise.$stack(array)
+Promise.$heap(array)
 ```
 ```js
 const api1 = _ => new Promise()
 const api2 = _ => new Promise()
 const api3 = _ => new Promise()
 const array = [api1, api2, api3]
-Promise.$stack(array)
+Promise.$heap(array)
 ```
 
 多个 Promise 依次进行，若有一个成功的返回 `resolve`，最后一个也失败了返回 `reject`，可以参考 `Promise.race()`
