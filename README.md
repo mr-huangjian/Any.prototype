@@ -89,7 +89,7 @@ console.log(value) // 2021-01-06 13:52:10 675
 // 无论时间戳是秒还是毫秒，内部都会转换为毫秒，所以外部不用再去做转换
 const timestamp = '1609900369647'
 
-// 只传时间戳，返回的是 Date 类型的变量
+// 只传时间戳，返回的是 Date 类型的对象
 const date = Date.$init(timestamp)
 
 // 传时间戳和格式，返回的是对应格式的字符串数据
@@ -130,8 +130,8 @@ Promise.$queue(array)
 ```
 ```js
 const api1 = _ => new Promise()
-const api2 = _ => new new Promise()
-const api3 = _ => new new Promise()
+const api2 = _ => new Promise()
+const api3 = _ => new Promise()
 const array = [api1, api2, api3]
 Promise.$queue(array)
 ```
