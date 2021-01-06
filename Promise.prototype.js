@@ -1,5 +1,5 @@
 
-Promise.$stack = Promise.$stack || function(array) {
+Promise.$heap = Promise.$heap || function(array) {
     let index = 0
     return new Promise((resolve, reject) => {
         array.forEach(item => {
