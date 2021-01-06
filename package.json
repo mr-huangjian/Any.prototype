@@ -1,0 +1,26 @@
+{
+    "name": "Any.prototype",
+    "version": "1.0.0",
+    "keywords": [
+        "type",
+        "object",
+        "prototype",
+        "extensions",
+        "react",
+        "react-native"
+    ],
+    "author": {
+        "name": "huangjian",
+        "email": "mr.huangjian@foxmail.com",
+        "github": "http://github.com/mr-huangjian"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/mr-huangjian/Any.prototype.git"
+    },
+    "dependencies": {
+
+    },
+    "license": "MIT"
+}
