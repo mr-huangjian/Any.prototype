@@ -1,5 +1,5 @@
 {
-    "name": "Any.prototype",
+    "name": "any.prototype",
     "version": "1.0.0",
     "keywords": [
         "type",
@@ -17,7 +17,7 @@
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "http://github.com/mr-huangjian/Any.prototype.git"
+        "url": "http://github.com/mr-huangjian/any.prototype.git"
     },
     "dependencies": {
 
