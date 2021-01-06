@@ -7,11 +7,11 @@
 ## 安装
 
 ```shell
-yarn add Any.prototype
+yarn add any.prototype
 ```
 or
 ```shell
-npm install Any.prototype
+npm install any.prototype
 ```
 <br/>
 
@@ -19,12 +19,12 @@ npm install Any.prototype
 
 你可以全部导入
 ```js
-import 'Any.prototype'
+import 'any.prototype'
 ```
 
 也可以单个类型导入
 ```js
-import 'Any.prototype/String.prototype'
+import 'any.prototype/String.prototype'
 ```
 <br/>
 
