@@ -79,8 +79,8 @@ date.$format(formatter)
 ```
 ```js
 const date = new Date()
-const value = date.$format('yyyy-MM-dd HH:mm:ss')
-console.log(value)
+const value = date.$format('yyyy-MM-dd HH:mm:ss S')
+console.log(value) // 2021-01-06 13:52:10 675
 ```
 
 根据时间戳时间格式化
@@ -116,11 +116,11 @@ Date.$time('ms')
 Promise.$stack(array)
 ```
 ```js
-const api1 = new new Promise()
-const api2 = new new Promise()
-const api3 = new new Promise()
+const api1 = _ => new Promise()
+const api2 = _ => new Promise()
+const api3 = _ => new Promise()
 const array = [api1, api2, api3]
-Promise.$lead(array)
+Promise.$stack(array)
 ```
 
 多个 Promise 依次进行，若有一个成功的返回 `resolve`，最后一个也失败了返回 `reject`，可以参考 `Promise.race()`
@@ -128,11 +128,11 @@ Promise.$lead(array)
 Promise.$queue(array)
 ```
 ```js
-const api1 = new new Promise()
-const api2 = new new Promise()
-const api3 = new new Promise()
+const api1 = _ => new Promise()
+const api2 = _ => new new Promise()
+const api3 = _ => new new Promise()
 const array = [api1, api2, api3]
-Promise.$scan(array)
+Promise.$queue(array)
 ```
 <br/>
 
@@ -140,7 +140,7 @@ Promise.$scan(array)
 
 字符串格式化
 ```js
-'{0} {1}!'.format('Hello', 'World') // 'Hello World!'
+'{} {}!'.format('Hello', 'World') // 'Hello World!'
 ```
 
 字符串格式化，也可以在最后一个参数传递被函数包裹的自定义格式符
@@ -150,7 +150,7 @@ Promise.$scan(array)
 
 字符串转换HTML转义符, 防代码注入
 ```js
-'<p>hello<p>'.$replaceHTMLChar() // '&lt;hello&gt;'
+'<p>hello<p>'.$replaceHTMLChar() // '&lt;p&gt;hello&lt;p&gt;'
 ```
 
 字符串前后加上单引号，在使用数据库增删改查时可能用到
