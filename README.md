@@ -1,7 +1,6 @@
 # Any.prototype
 
-这是一个 JavaScript 变量的属性和方法拓展库。为防止代码入侵，在每个属性和方法的名字前加上一个 `$` 符号。
-<br/>
+这是一个 JavaScript 变量的属性和方法拓展库。为防止代码入侵，在每个属性和方法的名字前加上一个 $ 符号。
 <br/>
 
 ## 安装
@@ -114,7 +113,7 @@ Date.$time('ms')
 
 多个 Promise 同时一起进行，最先成功的返回 `resolve`，都失败了返回 `reject`，可以参考 `Promise.race()`
 ```js
-Promise.$lead(array)
+Promise.$stack(array)
 ```
 ```js
 const api1 = new new Promise()
@@ -126,7 +125,7 @@ Promise.$lead(array)
 
 多个 Promise 依次进行，若有一个成功的返回 `resolve`，最后一个也失败了返回 `reject`，可以参考 `Promise.race()`
 ```js
-Promise.$scan(array)
+Promise.$queue(array)
 ```
 ```js
 const api1 = new new Promise()
