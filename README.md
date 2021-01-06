@@ -1,36 +1,27 @@
 # Any.prototype
 
-
-
-This is an extended library of properties and methods of JavaScript variables. To prevent code intrusion, add a $sign before the name of each property and method.
-
+这是一个 JavaScript 变量的属性和方法拓展库。为防止代码入侵，在每个属性和方法的名字前加上一个 $ 符号。
 <br/>
 
-
-
-## Installation
-
-
+## 安装
 
 ```shell
 yarn add Any.prototype
 ```
-
-Or
-
+or
 ```shell
 npm install Any.prototype
 ```
 <br/>
 
-## Import
+## 导入
 
-You can import all of them
+你可以全部导入
 ```js
 import 'Any.prototype'
 ```
 
-You can also import a single type
+也可以单个类型导入
 ```js
 import 'Any.prototype/String.prototype'
 ```
@@ -38,97 +29,89 @@ import 'Any.prototype/String.prototype'
 
 ## Array
 
-Determine whether the element is included in the array
+判断数组中是否包含该元素
 ```js
 array.$have(element)
 ```
-
 ```js
 const array = [1, 2, 3]
 const value = array.$have(0)
-console.log (value) // false
+console.log(value) // false
 ```
 
-Delete the elements with the specified index in the array and return the value of the deleted elements
+删除数组中指定索引的元素，返回被删除的元素值
 ```js
 array.$remove(index)
 ```
-
 ```js
 const array = [1, 2, 3]
 const value = array.$remove(0)
-console.log (value) // 1
-console.log (array) // [2, 3]
+console.log(value) // 1
+console.log(array) // [2, 3]
 ```
 
-Gets the first element in the array
+获取数组中第一个元素
 ```js
 array.$first
 ```
-
 ```js
 const array = [1, 2, 3]
 const value = array.$first
-console.log (value) // 1
+console.log(value) // 1
 ```
 
-Gets the last element in the array
+获取数组中最后一个元素
 ```js
 array.$last
 ```
-
 ```js
 const array = [1, 2, 3]
 const value = array.$last
-console.log (value) // 3
+console.log(value) // 3
 ```
 <br/>
 
 ## Date
 
-Time format, return string
+时间格式化，返回字符串
 ```js
 date.$format(formatter)
 ```
-
 ```js
 const date = new Date()
 const value = date.$format('yyyy-MM-dd HH:mm:ss')
-console.log (value)
+console.log(value)
 ```
 
-Format based on timestamp time
+根据时间戳时间格式化
 ```js
-// Whether the timestamp is seconds or milliseconds, the internal will be converted to milliseconds, so there is no need for external conversion
+// 无论时间戳是秒还是毫秒，内部都会转换为毫秒，所以外部不用再去做转换
 const timestamp = '1609900369647'
 
-// Only the timestamp is passed, and the variable of date type is returned
+// 只传时间戳，返回的是 Date 类型的变量
 const date = Date.$init(timestamp)
 
-// The format and timestamp of the corresponding data are returned
+// 传时间戳和格式，返回的是对应格式的字符串数据
 const date = Date.$init(timestamp, 'HH:mm:ss')
 
-// timestamp and empty format, return the corresponding standard format string data
+// 传时间戳和空格式，返回的是对应标准格式的字符串数据
 const date = Date.$init(timestamp, '')
 ```
 
-
-Gets the current timestamp
+获取当前的时间戳
 ```js
-// The time stamp in seconds is returned instead of parameters or's'
+// 不传参数或传 's'，返回的是以秒为单位的时间戳
 Date.$time()
 Date.$time('s')
 
-// The time stamp in milliseconds is returned by passing 'MS'
+// 传 'ms'，返回的是以毫秒为单位的时间戳
 Date.$time('ms')
 ```
 <br/>
 
-
 ## Promise
 
-Multiple projects are performed at the same time. The first successful project returns `resolve`. If it fails, it returns `reject`. Please refer to `Promise.race`
-
+多个 Promise 同时一起进行，最先成功的返回 `resolve`，都失败了返回 `reject`，可以参考 `Promise.race()`
 ```js
 Promise.$stack(array)
 ```
@@ -140,11 +123,10 @@ const array = [api1, api2, api3]
 Promise.$lead(array)
 ```
 
-Multiple projects are performed in turn. If one of them successfully returns "resolve" and the last one fails to return "reject", please refer to` Promise.race ())
+多个 Promise 依次进行，若有一个成功的返回 `resolve`，最后一个也失败了返回 `reject`，可以参考 `Promise.race()`
 ```js
 Promise.$queue(array)
 ```
-
 ```js
 const api1 = new new Promise()
 const api2 = new new Promise()
@@ -154,32 +136,33 @@ Promise.$scan(array)
 ```
 <br/>
 
-
 ## String
-String formatting
+
+字符串格式化
 ```js
 '{0} {1}!'.format('Hello', 'World') // 'Hello World!'
 ```
 
-String formatting, you can also pass the custom formant wrapped by the function in the last parameter
+字符串格式化，也可以在最后一个参数传递被函数包裹的自定义格式符
 ```js
 '%@ %@!'.format('Hello', 'World', _ => '%@') // 'Hello World!'
 ```
 
-String conversion HTML escape character to prevent code injection
+字符串转换HTML转义符, 防代码注入
 ```js
-'<p>hello<p>'.$replaceHTMLChar() // '<hello>'
+'<p>hello<p>'.$replaceHTMLChar() // '&lt;hello&gt;'
 ```
 
-String before and after a single quotation mark, in the use of database additions, deletions and changes may be used
+字符串前后加上单引号，在使用数据库增删改查时可能用到
 ```js
 'hello'.$quote // "'hello'"
 ```
 
-White space characters before and after string removal
-
+字符串去除前后的空白字符
 ```js
-' hel lo '.trimm // 'hel lo'
+' hel lo  '.trimm // 'hel lo'
 ```
+
+<br/>
 
 ---
